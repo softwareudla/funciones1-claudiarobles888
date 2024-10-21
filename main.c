@@ -51,7 +51,7 @@ int main()
         printf("4. Busqueda de un producto\n");
         scanf("%d", &opcion);
 
-        menu(opcion, n, precio, producto);
+        menu(opcion, n, precio, cantidad, producto);
 
         printf("¿Desea realizar una nueva funcion?\n1. Sí\n2. No\n");
         scanf("%d", &opc2);

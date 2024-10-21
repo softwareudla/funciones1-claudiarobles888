@@ -3,7 +3,7 @@
 #include "funciones.h"
 
 //FUNCION MENU DE OPCIONES
-void menu(int opcion, float n, float precio[], char producto[][30])
+void menu(int opcion, int n, float precio[], int cantidad [], char producto[][30])
 {
     float resultado;
     switch (opcion)
@@ -23,7 +23,7 @@ void menu(int opcion, float n, float precio[], char producto[][30])
         break;
 
     case 4: // Busqueda de productos
-        buscarProducto(producto, precio, n);
+        buscarProducto(producto, precio, cantidad, n);
         break;
 
     default:
@@ -72,7 +72,7 @@ float promedioInventario(float precio[], int n)
 }
 
 //FUNCION PARA BUSCAR UN PRODUCTO
-void buscarProducto(char producto[][30], float precio[], int n)
+void buscarProducto(char producto[][30], float precio[], int cantidad [], int n)
 {
     char productoBuscado[30];
     int encontrado = 0;
@@ -83,7 +83,7 @@ void buscarProducto(char producto[][30], float precio[], int n)
     {
         if (strcmp(producto[i], productoBuscado) == 0)
         {
-            printf("Producto encontrado: %s con un precio de %.2f\n", producto[i], precio[i]);
+            printf("Producto encontrado: %s\nExisten %d Unidades con un precio de %.2f\n", producto[i], cantidad [i], precio[i]);
             encontrado = 1;
             break;
         }
