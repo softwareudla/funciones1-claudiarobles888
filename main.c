@@ -53,7 +53,7 @@ int main()
 
         menu(opcion, n, precio, cantidad, producto);
 
-        printf("¿Desea realizar una nueva funcion?\n1. Sí\n2. No\n");
+        printf("Desea realizar una nueva funcion?\n1. Si\n2. No\n");
         scanf("%d", &opc2);
 
     } while (opc2 == 1);
