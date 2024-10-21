@@ -11,7 +11,7 @@ int main()
     int i, n=10;
     int opcion, opc2;   
 
-    printf("----- Tienda virtual -----");
+    printf("----- Inventario de tienda virtual -----\n");
 
 
     for (i = 0; i < 10; i++)

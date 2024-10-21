@@ -27,7 +27,7 @@ void menu(int opcion, int n, float precio[], int cantidad [], char producto[][30
         break;
 
     default:
-        printf("Opción no válida\n");
+        printf("Opcion no valida\n");
         break;
     }
 }
@@ -60,8 +60,8 @@ void productoMasBaratoyMasCaro(char producto[][30], float precio[], int t)
             masBarato = i;
         }
     }
-    printf("El producto más caro es: %s con un precio de %.2f\n", producto[masCaro], precio[masCaro]); // Corregido el printf
-    printf("El producto más barato es: %s con un precio de %.2f\n", producto[masBarato], precio[masBarato]); // Corregido el printf
+    printf("El producto mas caro es: %s con un precio de %.2f\n", producto[masCaro], precio[masCaro]); // Corregido el printf
+    printf("El producto mas barato es: %s con un precio de %.2f\n", producto[masBarato], precio[masBarato]); // Corregido el printf
 }
 
 //FUNCION PROMEDIO
@@ -76,7 +76,7 @@ void buscarProducto(char producto[][30], float precio[], int cantidad [], int n)
 {
     char productoBuscado[30];
     int encontrado = 0;
-    printf("Ingrese el nombre del producto que está buscando: ");
+    printf("Ingrese el nombre del producto que esta buscando: ");
     scanf("%s", productoBuscado);
 
     for (int i = 0; i < n; i++)
