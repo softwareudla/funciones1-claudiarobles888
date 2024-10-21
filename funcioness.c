@@ -1,15 +1,16 @@
 #include <stdio.h>
+#include <string.h>
 #include "funciones.h"
 
 //FUNCION MENU DE OPCIONES
-void menu(int opcion, float n, float precio[], char producto[], float m)
+void menu(int opcion, float n, float precio[], char producto[][30])
 {
-    float results;
+    float resultado;
     switch (opcion)
     {
     case 1: // Precio total del inventario
-
-        printf("El total del inventario es: %.2f\n"), totalInventario(precio, n);
+        resultado=totalInventario(precio, n);
+        printf("El total del inventario es: %.2f\n"), resultado;
         break;
 
     case 2: // Producto mas caro a mas barato
@@ -17,14 +18,16 @@ void menu(int opcion, float n, float precio[], char producto[], float m)
         break;
 
     case 3: // Promedio de los productos
-        printf("El promedio de los productos es: %.2f\n\n "), promedioInventario(precio, n);
+        resultado=promedioInventario(precio, n);
+        printf("El promedio de los productos es: %.2f\n\n "), resultado;
         break;
 
     case 4: // Busqueda de productos
-        printf("Ingrese el nombre del producto que esta buscando");
+        buscarProducto(producto, precio, n);
         break;
 
     default:
+    printf("Opcion no valida\n");
         break;
     }
 }
@@ -67,6 +70,25 @@ float promedioInventario(float precio[], int n){
 }
 
 //FUNCION PARA BUSCAR UN PRODUCTO
-void buscarProducto(char producto[][30], float precio[]){
+void buscarProducto(char producto[][30], float precio[], int n)
+{
+    char productoBuscado[30];
+    int encontrado = 0;
+    printf("Ingrese el nombre del producto que esta buscando: ");
+    scanf("%s", productoBuscado);
 
+    for (int i = 0; i < n; i++) 
+    {
+        if (strcmp(producto[i], productoBuscado) == 0) {
+            printf("Producto encontrado: %s con un precio de %.2f\n", producto[i], precio[i]);
+            encontrado = 1;
+            break;
+        }
+    }
+
+    if (!encontrado) 
+    {
+        printf("Producto no encontrado.\n");
+    }
 }
+

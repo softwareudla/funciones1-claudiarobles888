@@ -7,9 +7,9 @@ int main()
 
     char producto[10][30];
     float precio[10];
-    char cantidad[10][30];
-    int i, j;
-    int opcion, opc2;
+    char cantidad[10];
+    int i, n=10;
+    int opcion, opc2;   
 
     printf("----- Tienda virtual -----");
 
@@ -18,31 +18,44 @@ int main()
     {
         printf("Ingrese el producto %d:", i + 1);
         fgets(producto[i], 30, stdin);
-    }
-
-    for (i = 0; i < 10; i++)
-    {
-        printf("\nIngrese el precio del producto: %s\n", producto[i], i + 1);
-        scanf("%f", &precio[i]);
-        while (precio[i] < 0)
+        producto[i][strcspn(producto[i], "\n")] = 0;  
+    
+    do
         {
-            printf("El valor ingresado es incorrecto, ingrese nuevamnete el precio del producto %s: ", producto[i]);
-        }
-    }
-
-    for (i = 0; i < 10; i++)
-    {
-        printf("Ingrese la cantidad que va añadir en el inventario del producto:  %s\n", cantidad[i], i + 1);
-        fgets(cantidad[i], 30, stdin);
-    }
+            printf("Ingrese el precio del producto %s: ", producto[i]);
+            scanf("%f", &precio[i]);
+            if (precio[i] < 0)
+            {
+                printf("El valor ingresado es incorrecto. Por favor, ingrese nuevamente el precio del producto %s.\n", producto[i]);
+            }
+        } while (precio[i] < 0);
 
     do
-    {
-        printf("Seleccione la funcion a realizar:\n1.Precio total del inventario\n2.Producto mas caro a mas barato\n3.Promedio de los productos\n4.Busqueda de un producto\n");
+        {
+            printf("Ingrese la cantidad del producto %s: ", producto[i]);
+            scanf("%d", &cantidad[i]);
+            if (cantidad[i] < 0)
+            {
+                printf("El valor ingresado es incorrecto. Por favor, ingrese nuevamente la cantidad del producto %s.\n", producto[i]);
+            }
+        } while (cantidad[i] < 0);
+
+        while (getchar() != "\n");
+    }
+
+    do {
+        printf("Seleccione la funcion a realizar:\n");
+        printf("1. Precio total del inventario\n");
+        printf("2. Producto mas caro y mas barato\n");
+        printf("3. Promedio de los productos\n");
+        printf("4. Busqueda de un producto\n");
         scanf("%d", &opcion);
 
-        printf("Desea realizar una nueva funcion:\n1. Si\n2. No\n");
+        menu(opcion, n, precio, producto);
+
+        printf("¿Desea realizar una nueva funcion?\n1. Sí\n2. No\n");
         scanf("%d", &opc2);
+
     } while (opc2 == 1);
 
     return 0;
