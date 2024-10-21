@@ -83,7 +83,7 @@ void buscarProducto(char producto[][30], float precio[], int cantidad [], int n)
     {
         if (strcmp(producto[i], productoBuscado) == 0)
         {
-            printf("Producto encontrado: %s\nExisten %d Unidades con un precio de %.2f\n", producto[i], cantidad [i], precio[i]);
+            printf("Producto encontrado: %s\nExisten %d Unidades con un precio de %.2f por unidad\n", producto[i], cantidad [i], precio[i]);
             encontrado = 1;
             break;
         }
