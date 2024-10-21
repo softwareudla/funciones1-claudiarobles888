@@ -7,7 +7,7 @@ int main()
 
     char producto[10][30];
     float precio[10];
-    char cantidad[10];
+    int cantidad[10];
     int i, n=10;
     int opcion, opc2;   
 
@@ -40,7 +40,7 @@ int main()
             }
         } while (cantidad[i] < 0);
 
-        while (getchar() != "\n");
+        while (getchar() != '\n');
     }
 
     do {

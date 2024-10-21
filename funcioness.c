@@ -9,17 +9,17 @@ void menu(int opcion, float n, float precio[], char producto[][30])
     switch (opcion)
     {
     case 1: // Precio total del inventario
-        resultado=totalInventario(precio, n);
-        printf("El total del inventario es: %.2f\n"), resultado;
+        resultado = totalInventario(precio, n);
+        printf("El total del inventario es: %.2f\n", resultado);
         break;
 
-    case 2: // Producto mas caro a mas barato
+    case 2: // Producto más caro y más barato
         productoMasBaratoyMasCaro(producto, precio, n);
         break;
 
     case 3: // Promedio de los productos
-        resultado=promedioInventario(precio, n);
-        printf("El promedio de los productos es: %.2f\n\n "), resultado;
+        resultado = promedioInventario(precio, n);
+        printf("El promedio de los productos es: %.2f\n\n", resultado); 
         break;
 
     case 4: // Busqueda de productos
@@ -27,19 +27,20 @@ void menu(int opcion, float n, float precio[], char producto[][30])
         break;
 
     default:
-    printf("Opcion no valida\n");
+        printf("Opción no válida\n");
         break;
     }
 }
 
 //FUNCION TOTAL INVENTARIO
-float totalInventario(float precio[], int n){
-float precioTotal=0;
-for ( int i = 0; i < n; i++)
+float totalInventario(float precio[], int n)
 {
-    precioTotal+=precio[i];
-}
-return precioTotal;
+    float precioTotal = 0;
+    for (int i = 0; i < n; i++)
+    {
+        precioTotal += precio[i];
+    }
+    return precioTotal;
 }
 
 //FUNCION PRODUCTO MAS CARO Y MAS BARATO
@@ -59,14 +60,15 @@ void productoMasBaratoyMasCaro(char producto[][30], float precio[], int t)
             masBarato = i;
         }
     }
-    printf("El producto mas caro es: %s con un precio de %.2f\n"), producto[masCaro], precio[masCaro];
-    printf("El producto mas barato es: %s con un precio de %.2f\n"), producto[masBarato], precio[masBarato];
-} 
+    printf("El producto más caro es: %s con un precio de %.2f\n", producto[masCaro], precio[masCaro]); // Corregido el printf
+    printf("El producto más barato es: %s con un precio de %.2f\n", producto[masBarato], precio[masBarato]); // Corregido el printf
+}
 
 //FUNCION PROMEDIO
-float promedioInventario(float precio[], int n){
-    float total=totalInventario(precio, n);
-    return total/n;
+float promedioInventario(float precio[], int n)
+{
+    float total = totalInventario(precio, n);
+    return total / n;
 }
 
 //FUNCION PARA BUSCAR UN PRODUCTO
@@ -74,21 +76,21 @@ void buscarProducto(char producto[][30], float precio[], int n)
 {
     char productoBuscado[30];
     int encontrado = 0;
-    printf("Ingrese el nombre del producto que esta buscando: ");
+    printf("Ingrese el nombre del producto que está buscando: ");
     scanf("%s", productoBuscado);
 
-    for (int i = 0; i < n; i++) 
+    for (int i = 0; i < n; i++)
     {
-        if (strcmp(producto[i], productoBuscado) == 0) {
+        if (strcmp(producto[i], productoBuscado) == 0)
+        {
             printf("Producto encontrado: %s con un precio de %.2f\n", producto[i], precio[i]);
             encontrado = 1;
             break;
         }
     }
 
-    if (!encontrado) 
+    if (!encontrado)
     {
-        printf("Producto no encontrado.\n");
+        printf("Producto no encontrado\n");
     }
 }
-
